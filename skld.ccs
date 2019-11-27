@@ -1,0 +1,14 @@
+<Solution>
+  <PropertyGroup Name="skld" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Project Name="MainScene.csd" Type="Scene" />
+        <Folder Name="res">
+          <Project Name="WorldMap.csd" Type="Layer" />
+          <TmxFile Name="worldmap.tmx" />
+        </Folder>
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>
