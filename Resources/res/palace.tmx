@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="20" height="20" tilewidth="32" tileheight="32" nextobjectid="4">
+ <tileset firstgid="1" name="palace" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="palace.png" width="512" height="512"/>
+ </tileset>
+ <layer name="块层 1" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3NtQ5CQRBA0Yc7BHcI7hDcIbjD//8Nt6B6zRbTkMAkp9mZ3NW0//zquOCGB174hL0kUkgjg6yw10ATLbTREfbmWGCJFdbC3g13PPDE6/NugBEmmGER/uNHAEGEEBb2csijgCJKinsrbLDDAadu30UPfQwwVPQiiCKGOBK6/QZb7LDHQdEro4Iqaqgr7lUzwhgTTDET9o444YwLrsLeN80b38O0PUAGAAA=
+  </data>
+ </layer>
+ <objectgroup name="palaces">
+  <object id="1" x="225" y="192" width="159" height="159">
+   <properties>
+    <property name="id" value="2"/>
+   </properties>
+  </object>
+  <object id="2" x="416" y="320" width="160" height="161">
+   <properties>
+    <property name="id" value="1"/>
+   </properties>
+  </object>
+  <object id="3" x="160" y="417" width="160" height="159">
+   <properties>
+    <property name="id" value="3"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

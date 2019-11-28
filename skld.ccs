@@ -3,11 +3,16 @@
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
-        <Project Name="MainScene.csd" Type="Scene" />
         <Folder Name="res">
           <Project Name="WorldMap.csd" Type="Layer" />
-          <TmxFile Name="worldmap.tmx" />
+          <Project Name="XiWuFang.csd" Type="Layer" />
+          <Project Name="XiuWenFang.csd" Type="Layer" />
         </Folder>
+        <Project Name="MainScene.csd" Type="Scene" />
+        <TmxFile Name="palace.tmx" />
+        <Project Name="PalaceScene.csd" Type="Scene" />
+        <TmxFile Name="worldmap.tmx" />
+        <Image Name="worldmapbg.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "cocos2d.h"
+#include "ui/UIButton.h"
 
 class MainScene : public cocos2d::Layer
 {
@@ -13,5 +14,9 @@ public:
 
     // implement the "static create()" method manually
     CREATE_FUNC(MainScene);
+
+private:
+	cocos2d::ui::Button* btnPalace = nullptr;
+	cocos2d::ui::Button* btnWorldMap = nullptr;
 };
 

@@ -11,7 +11,7 @@
         <iOS_Target Value="skld-mobile" />
         <iOS_BundleID Value="" />
         <Platform Value="None" />
-        <RunPlatform Value="None" />
+        <RunPlatform Value="Windows" />
         <FrameworkVersion Value="cocos2d-x-3.10" />
         <IsDebugKeystore Value="True" />
         <EnableSourceMap Value="False" />
@@ -23,6 +23,18 @@
         <LastPublishType Value="Resource" />
         <IsLastPublish Value="True" />
         <LastRunType Value="Windows" />
+      </Value>
+    </Item>
+    <Item Key="TabsParamsKey">
+      <Value ctype="TabsInfo">
+        <OpenedDocuments>
+          <FilePathData Path="MainScene.csd" />
+          <FilePathData Path="res/WorldMap.csd" />
+          <FilePathData Path="PalaceScene.csd" />
+          <FilePathData Path="res/XiWuFang.csd" />
+          <FilePathData Path="res/XiuWenFang.csd" />
+        </OpenedDocuments>
+        <ActiveDocument Path="res/WorldMap.csd" />
       </Value>
     </Item>
   </Properties>

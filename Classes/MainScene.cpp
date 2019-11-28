@@ -3,6 +3,7 @@
 #include "ui/CocosGUI.h"
 #include "components/WorldMapView.h"
 #include "plugin/PluginCenter.h"
+#include "PalaceScene.h"
 
 USING_NS_CC;
 
@@ -94,14 +95,19 @@ bool MainScene::init()
 	}
     addChild(rootNode);
 
-	auto touchListener = EventListenerTouchOneByOne::create();
-	touchListener->onTouchBegan = [this](Touch* touch, Event* event) {
-		plugin::showPlugin<components::WorldMapView>();
-		return true;
-	};
-	touchListener->onTouchMoved = [this](Touch* touch, Event* event) {};
-	touchListener->onTouchEnded = [this](Touch* touch, Event* event) {};
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
-	touchListener->setSwallowTouches(true);
+	if (btnPalace == nullptr)
+	{
+		btnPalace = reinterpret_cast<ui::Button*>(rootNode->getChildByName("btnPalace"));
+		if (btnPalace != nullptr) { btnPalace->addClickEventListener([](Ref*) {
+			auto scene = PalaceScene::createScene();
+			Director::getInstance()->runWithScene(scene);
+		}); }
+	}
+
+	if (btnWorldMap == nullptr)
+	{
+		btnWorldMap = reinterpret_cast<ui::Button*>(rootNode->getChildByName("btnWorldMap"));
+		if (btnWorldMap != nullptr) { btnWorldMap->addClickEventListener([](Ref*) { plugin::showPlugin<components::WorldMapView>(); }); }
+	}
     return true;
 }

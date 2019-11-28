@@ -1,0 +1,19 @@
+{
+    "countries": [
+        {"id": 1, "name": "秦", "kingCode": 1},
+        {"id": 2, "name": "齐", "kingCode": 1},
+        {"id": 3, "name": "楚", "kingCode": 1},
+        {"id": 4, "name": "赵", "kingCode": 1},
+        {"id": 5, "name": "魏", "kingCode": 1},
+        {"id": 6, "name": "燕", "kingCode": 1},
+        {"id": 7, "name": "韩", "kingCode": 1},
+        {"id": 8, "name": "周", "kingCode": 1},
+        {"id": 9, "name": "越", "kingCode": 1},
+        {"id": 10, "name": "巴", "kingCode": 1},
+        {"id": 11, "name": "蜀", "kingCode": 1},
+        {"id": 12, "name": "义渠", "kingCode": 1},
+        {"id": 13, "name": "羌", "kingCode": 1},
+        {"id": 14, "name": "匈奴", "kingCode": 1},
+        {"id": 15, "name": "百越", "kingCode": 1}
+    ]
+}

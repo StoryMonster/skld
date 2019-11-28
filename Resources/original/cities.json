@@ -1,0 +1,25 @@
+{
+    "cities": [
+        {"id": 1, "name": "咸阳", "population": 50000, "isCapital": true, "countryCode": 1, "officialCode": 1 },
+        {"id": 2, "name": "雍", "population": 20000, "isCapital": false, "countryCode": 1, "officialCode": 1 },
+        {"id": 3, "name": "栎阳", "population": 20000, "isCapital": false, "countryCode": 1, "officialCode": 1 },
+        {"id": 4, "name": "临淄", "population": 70000, "isCapital": true, "countryCode": 2, "officialCode": 1 },
+        {"id": 5, "name": "即墨", "population": 35000, "isCapital": false, "countryCode": 2, "officialCode": 1 },
+        {"id": 6, "name": "莒", "population": 30000, "isCapital": false, "countryCode": 2, "officialCode": 1 },
+        {"id": 7, "name": "郢", "population": 50000, "isCapital": true, "countryCode": 3, "officialCode": 1 },
+        {"id": 8, "name": "寿春", "population": 20000, "isCapital": false, "countryCode": 3, "officialCode": 1 },
+        {"id": 9, "name": "舞阳", "population": 10000, "isCapital": false, "countryCode": 3, "officialCode": 1 },
+        {"id": 10, "name": "蓟", "population": 30000, "isCapital": true, "countryCode": 6, "officialCode": 1 },
+        {"id": 11, "name": "涿", "population": 10000, "isCapital": false, "countryCode": 6, "officialCode": 1 },
+        {"id": 12, "name": "邯郸", "population": 40000, "isCapital": true, "countryCode": 4, "officialCode": 1 },
+        {"id": 13, "name": "代", "population": 20000, "isCapital": false, "countryCode": 4, "officialCode": 1 },
+        {"id": 14, "name": "邺", "population": 60000, "isCapital": true, "countryCode": 5, "officialCode": 1 },
+        {"id": 15, "name": "安邑", "population": 30000, "isCapital": false, "countryCode": 5, "officialCode": 1 },
+        {"id": 16, "name": "新郑", "population": 40000, "isCapital": true, "countryCode": 7, "officialCode": 1 },
+        {"id": 17, "name": "阳翟", "population": 10000, "isCapital": false, "countryCode": 7, "officialCode": 1 },
+        {"id": 18, "name": "巴", "population": 20000, "isCapital": true, "countryCode": 10, "officialCode": 1 },
+        {"id": 19, "name": "成都", "population": 20000, "isCapital": true, "countryCode": 11, "officialCode": 1 },
+        {"id": 20, "name": "会稽", "population": 20000, "isCapital": true, "countryCode": 9, "officialCode": 1 },
+        {"id": 21, "name": "洛阳", "population": 30000, "isCapital": true, "countryCode": 8, "officialCode": 1 }
+    ]
+}

@@ -1,5 +1,7 @@
 #include "AppDelegate.h"
 #include "MainScene.h"
+#include "model/city/CitiesManager.h"
+#include "model/country/CountryManager.h"
 
 USING_NS_CC;
 
@@ -37,7 +39,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->setDisplayStats(true);
 
     // set FPS. the default value is 1.0/60 if you don't call this
-    director->setAnimationInterval(1.0 / 60);
+    director->setAnimationInterval(1.0f / 60);
 
     FileUtils::getInstance()->addSearchPath("res");
 
@@ -46,6 +48,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // run
     director->runWithScene(scene);
+
+	// load configuration files
+	city::CitiesManager::getInstance().loadCities();
+	country::CountryManager::getInstance().loadCountries();
 
     return true;
 }
