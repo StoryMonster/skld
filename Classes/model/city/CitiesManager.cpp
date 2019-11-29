@@ -45,7 +45,7 @@ void CitiesManager::loadCities()
 			CCLOGERROR("'cities' is not found in %s or 'cities' is not an array", filename.c_str());
 			return;
 		}
-		for (int i = 0; i < jsonDoc["cities"].Size(); ++i)
+		for (unsigned int i = 0; i < jsonDoc["cities"].Size(); ++i)
 		{
 			const auto& city = jsonDoc["cities"][i];
 			if (!allCityMemberCorrect(city))

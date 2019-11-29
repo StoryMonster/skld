@@ -16,7 +16,7 @@ public:
     CREATE_FUNC(MainScene);
 
 private:
-	cocos2d::ui::Button* btnPalace = nullptr;
-	cocos2d::ui::Button* btnWorldMap = nullptr;
+	cocos2d::ui::Button* btnGameStart = nullptr;
+	cocos2d::ui::Button* btnQuitGame = nullptr;
 };
 

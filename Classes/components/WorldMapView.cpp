@@ -36,27 +36,32 @@ void WorldMapView::init()
 		CCLOGERROR("load %s fail", resPath.c_str());
 		return;
 	}
+	if (this->bg == nullptr)
+	{
+		this->bg = this->node->getChildByName("bg");
+		if (this->bg == nullptr) { return; }
+	}
 	if (btnBack == nullptr)
 	{
-		btnBack = reinterpret_cast<ui::Button*>(this->node->getChildByName("btnBack"));
+		btnBack = reinterpret_cast<ui::Button*>(this->bg->getChildByName("btnBack"));
 		if (btnBack == nullptr) { CCLOGWARN("Cannot find the btnBack in %s", resPath.c_str()); }
 		else { btnBack->addClickEventListener([this](Ref*) { this->close(); }); }
 	}
 	if (map == nullptr)
 	{
-		map = reinterpret_cast<TMXTiledMap*>(this->node->getChildByName("map"));
+		map = reinterpret_cast<TMXTiledMap*>(this->bg->getChildByName("map"));
 		if (map == nullptr) { CCLOGWARN("Cannot find the map in %s", resPath.c_str()); }
 		else { this->initMap(); }
 	}
 	if (lblCity == nullptr)
 	{
-		lblCity = reinterpret_cast<ui::Text*>(this->node->getChildByName("lblCity"));
+		lblCity = reinterpret_cast<ui::Text*>(this->bg->getChildByName("lblCity"));
 		if (lblCity == nullptr) { CCLOGWARN("Cannot find the lblCity in %s", resPath.c_str()); }
 	}
 
 	if (lblPopulation == nullptr)
 	{
-		lblPopulation = reinterpret_cast<ui::Text*>(this->node->getChildByName("lblPopulation"));
+		lblPopulation = reinterpret_cast<ui::Text*>(this->bg->getChildByName("lblPopulation"));
 		if (lblPopulation == nullptr) { CCLOGWARN("Cannot find the lblPopulation in %s", resPath.c_str()); }
 	}
 }
@@ -88,6 +93,7 @@ void WorldMapView::close()
 		this->map = nullptr;
 		this->lblCity = nullptr;
 		this->lblPopulation = nullptr;
+		this->bg = nullptr;
 	}
 }
 
@@ -95,13 +101,14 @@ int WorldMapView::getTheClickingCityId(Touch* touch)
 {
 	const auto location = touch->getLocation();
 	auto mapPos = map->getPosition();
-	auto yscale = map->getScaleY();
-	auto xscale = map->getScaleX();
+	auto bgPos = bg->getPosition();
+	auto yscale = map->getScaleY() * bg->getScaleY();
+	auto xscale = map->getScaleX() * bg->getScaleX();
 
 	for (const auto& cityNode : this->cityNodesInfo)
 	{
-		auto x = mapPos.x + cityNode.x * xscale;
-		auto y = mapPos.y + cityNode.y * yscale;
+		auto x = bgPos.x + mapPos.x + cityNode.x * xscale;
+		auto y = bgPos.y + mapPos.y + cityNode.y * yscale;
 		auto width = cityNode.width * xscale;
 		auto height = cityNode.height * yscale;
 		if (x <= location.x && x + width >= location.x && y <= location.y && y + height >= location.y)
@@ -147,7 +154,7 @@ void WorldMapView::initMap()
 			if (id >= 0) { this->onCityClicked(id); }
 			return true;
 		};
-		this->map->getEventDispatcher()->addEventListenerWithSceneGraphPriority(this->mapListener, this->map);
+		this->map->getEventDispatcher()->addEventListenerWithSceneGraphPriority(this->mapListener, this->bg);
 		this->mapListener->setSwallowTouches(true);
 	}
 }

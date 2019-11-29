@@ -6,52 +6,68 @@
       <ObjectData Name="WorldMap" Tag="4" ctype="GameLayerObjectData">
         <Size X="960.0000" Y="640.0000" />
         <Children>
-          <AbstractNodeData Name="map" ActionTag="-1039037722" Tag="5" IconVisible="False" LeftMargin="-0.0002" RightMargin="320.0002" TopMargin="88.7008" BottomMargin="-88.7008" ctype="GameMapObjectData">
-            <Size X="640.0000" Y="640.0000" />
+          <AbstractNodeData Name="bg" ActionTag="-1929285853" Tag="16" IconVisible="False" LeftMargin="80.0000" RightMargin="652.0000" TopMargin="356.0000" BottomMargin="70.0000" LeftEage="74" RightEage="74" TopEage="70" BottomEage="70" Scale9OriginX="74" Scale9OriginY="70" Scale9Width="79" Scale9Height="74" ctype="ImageViewObjectData">
+            <Size X="228.0000" Y="214.0000" />
+            <Children>
+              <AbstractNodeData Name="lblPopulation" ActionTag="-1803381367" Tag="18" IconVisible="False" LeftMargin="150.0000" RightMargin="78.0000" TopMargin="94.0000" BottomMargin="120.0000" FontSize="20" LabelText="" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="0.0000" Y="0.0000" />
+                <AnchorPoint />
+                <Position X="150.0000" Y="120.0000" />
+                <Scale ScaleX="0.3906" ScaleY="1.0000" />
+                <CColor A="255" R="0" G="0" B="0" />
+                <PrePosition X="0.6579" Y="0.5607" />
+                <PreSize X="0.0000" Y="0.0000" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="lblCity" ActionTag="1587741688" Tag="17" IconVisible="False" LeftMargin="150.0000" RightMargin="78.0000" TopMargin="74.0000" BottomMargin="140.0000" FontSize="20" LabelText="" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="0.0000" Y="0.0000" />
+                <AnchorPoint />
+                <Position X="150.0000" Y="140.0000" />
+                <Scale ScaleX="0.4546" ScaleY="1.0000" />
+                <CColor A="255" R="0" G="0" B="0" />
+                <PrePosition X="0.6579" Y="0.6542" />
+                <PreSize X="0.0000" Y="0.0000" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="map" ActionTag="-1039037722" Tag="5" IconVisible="False" RightMargin="-412.0000" TopMargin="-426.0000" ctype="GameMapObjectData">
+                <Size X="640.0000" Y="640.0000" />
+                <AnchorPoint />
+                <Position />
+                <Scale ScaleX="0.2330" ScaleY="0.3348" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition />
+                <PreSize X="2.8070" Y="2.9907" />
+                <FileData Type="Normal" Path="worldmap.tmx" Plist="" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="btnBack" ActionTag="-1540104054" Tag="15" IconVisible="False" LeftMargin="199.8472" RightMargin="-3.8472" TopMargin="-1.1285" BottomMargin="183.1285" TouchEnable="True" LeftEage="10" RightEage="10" TopEage="10" BottomEage="10" Scale9OriginX="10" Scale9OriginY="10" Scale9Width="12" Scale9Height="12" ctype="ImageViewObjectData">
+                <Size X="32.0000" Y="32.0000" />
+                <AnchorPoint ScaleX="0.6640" ScaleY="0.7862" />
+                <Position X="221.0957" Y="208.2855" />
+                <Scale ScaleX="0.4188" ScaleY="0.6535" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.9697" Y="0.9733" />
+                <PreSize X="0.1404" Y="0.1495" />
+                <FileData Type="Normal" Path="quit.png" Plist="" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="txtWorldMap" ActionTag="1687415833" Tag="20" IconVisible="False" LeftMargin="51.2301" RightMargin="128.7699" TopMargin="181.5029" BottomMargin="17.4971" LabelText="世界地图" ctype="TextBMFontObjectData">
+                <Size X="48.0000" Y="15.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="75.2301" Y="24.9971" />
+                <Scale ScaleX="0.9355" ScaleY="1.9989" />
+                <CColor A="255" R="0" G="0" B="0" />
+                <PrePosition X="0.3300" Y="0.1168" />
+                <PreSize X="0.2105" Y="0.0701" />
+              </AbstractNodeData>
+            </Children>
             <AnchorPoint />
-            <Position X="-0.0002" Y="-88.7008" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Position X="80.0000" Y="70.0000" />
+            <Scale ScaleX="3.5422" ScaleY="2.1815" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.0000" Y="-0.1386" />
-            <PreSize X="0.6667" Y="1.0000" />
-            <FileData Type="Normal" Path="worldmap.tmx" Plist="" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="btnBack" ActionTag="234944713" Tag="8" IconVisible="False" LeftMargin="777.6135" RightMargin="136.3865" TopMargin="51.4838" BottomMargin="552.5162" TouchEnable="True" FontSize="14" ButtonText="返回" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="46.0000" Y="36.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="800.6135" Y="570.5162" />
-            <Scale ScaleX="3.8865" ScaleY="1.5269" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8340" Y="0.8914" />
-            <PreSize X="0.0479" Y="0.0562" />
-            <TextColor A="255" R="65" G="65" B="70" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
-            <OutlineColor A="255" R="255" G="0" B="0" />
-            <ShadowColor A="255" R="110" G="110" B="110" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="lblCity" ActionTag="1750740007" Tag="10" IconVisible="False" LeftMargin="800.0000" RightMargin="160.0000" TopMargin="170.0000" BottomMargin="470.0000" FontSize="20" LabelText="" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="0.0000" Y="0.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="800.0000" Y="470.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8333" Y="0.7344" />
-            <PreSize X="0.0000" Y="0.0000" />
-            <OutlineColor A="255" R="255" G="0" B="0" />
-            <ShadowColor A="255" R="110" G="110" B="110" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="lblPopulation" ActionTag="-1479738345" Tag="6" IconVisible="False" LeftMargin="800.0000" RightMargin="160.0000" TopMargin="190.0000" BottomMargin="450.0000" FontSize="20" LabelText="" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="0.0000" Y="0.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="800.0000" Y="450.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.8333" Y="0.7031" />
-            <PreSize X="0.0000" Y="0.0000" />
-            <OutlineColor A="255" R="255" G="0" B="0" />
-            <ShadowColor A="255" R="110" G="110" B="110" />
+            <PrePosition X="0.0833" Y="0.1094" />
+            <PreSize X="0.2375" Y="0.3344" />
+            <FileData Type="Normal" Path="bg.jpg" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

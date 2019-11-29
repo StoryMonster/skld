@@ -95,19 +95,22 @@ bool MainScene::init()
 	}
     addChild(rootNode);
 
-	if (btnPalace == nullptr)
+	if (btnGameStart == nullptr)
 	{
-		btnPalace = reinterpret_cast<ui::Button*>(rootNode->getChildByName("btnPalace"));
-		if (btnPalace != nullptr) { btnPalace->addClickEventListener([](Ref*) {
+		btnGameStart = reinterpret_cast<ui::Button*>(rootNode->getChildByName("btnStartGame"));
+		if (btnGameStart != nullptr) { btnGameStart->addClickEventListener([](Ref*) {
 			auto scene = PalaceScene::createScene();
 			Director::getInstance()->runWithScene(scene);
 		}); }
 	}
 
-	if (btnWorldMap == nullptr)
+	if (btnQuitGame == nullptr)
 	{
-		btnWorldMap = reinterpret_cast<ui::Button*>(rootNode->getChildByName("btnWorldMap"));
-		if (btnWorldMap != nullptr) { btnWorldMap->addClickEventListener([](Ref*) { plugin::showPlugin<components::WorldMapView>(); }); }
+		btnQuitGame = reinterpret_cast<ui::Button*>(rootNode->getChildByName("btnQuitGame"));
+		if (btnQuitGame != nullptr) {
+			btnQuitGame->addClickEventListener([](Ref*) { exit(0); });
+		}
 	}
+
     return true;
 }

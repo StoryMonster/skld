@@ -32,6 +32,9 @@ private:
 	int getClickedPalaceId(const cocos2d::Vec2&);
 
 	cocos2d::ui::Button* btnWorldMap = nullptr;
+	cocos2d::ui::Button* btnExit = nullptr;
+	cocos2d::ui::Button* btnShop = nullptr;
+	cocos2d::ui::Button* btnSetting = nullptr;
 	std::vector<PalaceInfo> palaces{};
 };
 

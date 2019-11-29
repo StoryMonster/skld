@@ -2,10 +2,14 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "components/WorldMapView.h"
+#include "components/XiuWenFangView.h"
+#include "components/XiWuFangView.h"
 #include "plugin/PluginCenter.h"
+#include "TingYiDianScene.h"
+#include "MainScene.h"
+
 
 USING_NS_CC;
-
 using namespace cocostudio::timeline;
 
 Scene* PalaceScene::createScene()
@@ -50,6 +54,33 @@ bool PalaceScene::init()
 		}
 	}
 
+	if (btnExit == nullptr)
+	{
+		btnExit = reinterpret_cast<ui::Button*>(rootNode->getChildByName("btnExit"));
+		if (btnExit != nullptr)
+		{
+			btnExit->addClickEventListener([](Ref*) { Director::getInstance()->replaceScene(MainScene::createScene()); });
+		}
+	}
+
+	if (btnShop == nullptr)
+	{
+		btnShop = reinterpret_cast<ui::Button*>(rootNode->getChildByName("btnShop"));
+		if (btnShop != nullptr)
+		{
+			btnShop->addClickEventListener([](Ref*) { CCLOG("clicked the shop"); });
+		}
+	}
+
+	if (btnSetting == nullptr)
+	{
+		btnSetting = reinterpret_cast<ui::Button*>(rootNode->getChildByName("btnSetting"));
+		if (btnSetting != nullptr)
+		{
+			btnSetting->addClickEventListener([](Ref*) { CCLOG("clicked the setting"); });
+		}
+	}
+
 	EventListenerTouchOneByOne* eventListener = EventListenerTouchOneByOne::create();
 	if (eventListener != nullptr)
 	{
@@ -60,7 +91,11 @@ bool PalaceScene::init()
 			{
 				auto mapPos = palaceMap->getPosition();
 				auto mapSize = palaceMap->getContentSize();
-				if (location.x >= mapPos.x && location.x <= mapPos.x + mapSize.width && location.y >= mapPos.y && location.y <= mapPos.y + mapSize.height)
+				auto xscale = palaceMap->getScaleX();
+				auto yscale = palaceMap->getScaleY();
+				auto width = mapSize.width * xscale;
+				auto height = mapSize.height * yscale;
+				if (location.x >= mapPos.x && location.x <= mapPos.x + width && location.y >= mapPos.y && location.y <= mapPos.y + height)
 				{
 					this->onPalaceMapClicked(location);
 				}
@@ -100,7 +135,20 @@ void PalaceScene::onPalaceMapClicked(const cocos2d::Vec2& pos)
 {
 	const int id = getClickedPalaceId(pos);
 	if (id < 0) { return; }
-	CCLOG("clicked palace %d", id);
+	switch (id)
+	{
+	case 1:
+		Director::getInstance()->replaceScene(TingYiDianScene::createScene());
+		break;
+	case 2:
+		plugin::showPlugin<components::XiuWenFangView>();
+		break;
+	case 3:
+		plugin::showPlugin<components::XiWuFangView>();
+		break;
+	default:
+		CCLOGWARN("No palace found for id=%d", id);
+	}
 }
 
 void PalaceScene::initPalaces()

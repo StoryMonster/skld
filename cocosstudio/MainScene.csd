@@ -6,35 +6,57 @@
       <ObjectData Name="Scene" ctype="GameNodeObjectData">
         <Size X="960.0000" Y="640.0000" />
         <Children>
-          <AbstractNodeData Name="btnPalace" ActionTag="1935771697" Tag="11" IconVisible="False" LeftMargin="350.0000" RightMargin="510.0000" TopMargin="122.0000" BottomMargin="482.0000" TouchEnable="True" StretchHeightEnable="True" FontSize="14" ButtonText="Palace" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="100.0000" Y="36.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="400.0000" Y="500.0000" />
+          <AbstractNodeData Name="bg" ActionTag="1093120612" Tag="40" IconVisible="False" LeftMargin="1.8738" RightMargin="-1.8738" LeftEage="95" RightEage="95" TopEage="65" BottomEage="65" Scale9OriginX="95" Scale9OriginY="65" Scale9Width="100" Scale9Height="67" ctype="ImageViewObjectData">
+            <Size X="960.0000" Y="640.0000" />
+            <AnchorPoint />
+            <Position X="1.8738" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4167" Y="0.7813" />
-            <PreSize X="0.1042" Y="0.0562" />
-            <TextColor A="255" R="65" G="65" B="70" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
-            <OutlineColor A="255" R="255" G="0" B="0" />
-            <ShadowColor A="255" R="110" G="110" B="110" />
+            <PrePosition X="0.0020" />
+            <PreSize X="1.0000" Y="1.0000" />
+            <FileData Type="Normal" Path="bg2.jpg" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="btnWorldMap" ActionTag="1133528265" Tag="12" IconVisible="False" LeftMargin="350.0012" RightMargin="509.9988" TopMargin="421.9999" BottomMargin="182.0001" TouchEnable="True" FontSize="14" ButtonText="Map" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="100.0000" Y="36.0000" />
+          <AbstractNodeData Name="btnStartGame" ActionTag="-1605315356" Tag="41" IconVisible="False" LeftMargin="652.0000" RightMargin="212.0000" TopMargin="232.0000" BottomMargin="312.0000" TouchEnable="True" LeftEage="31" RightEage="31" TopEage="31" BottomEage="31" Scale9OriginX="31" Scale9OriginY="31" Scale9Width="34" Scale9Height="34" ctype="ImageViewObjectData">
+            <Size X="96.0000" Y="96.0000" />
+            <Children>
+              <AbstractNodeData Name="txtStartGame" ActionTag="1413934243" Tag="43" IconVisible="False" LeftMargin="24.0000" RightMargin="24.0000" TopMargin="40.5000" BottomMargin="40.5000" LabelText="开始游戏" ctype="TextBMFontObjectData">
+                <Size X="48.0000" Y="15.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="48.0000" Y="48.0000" />
+                <Scale ScaleX="1.2071" ScaleY="4.6884" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5000" Y="0.5000" />
+                <PreSize X="0.5000" Y="0.1563" />
+              </AbstractNodeData>
+            </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="400.0012" Y="200.0001" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Position X="700.0000" Y="360.0000" />
+            <Scale ScaleX="2.6396" ScaleY="0.6096" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4167" Y="0.3125" />
-            <PreSize X="0.1042" Y="0.0562" />
-            <TextColor A="255" R="65" G="65" B="70" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
-            <OutlineColor A="255" R="255" G="0" B="0" />
-            <ShadowColor A="255" R="110" G="110" B="110" />
+            <PrePosition X="0.7292" Y="0.5625" />
+            <PreSize X="0.1000" Y="0.1500" />
+            <FileData Type="Normal" Path="button1.png" Plist="" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="btnQuitGame" ActionTag="-1543933897" Tag="45" IconVisible="False" LeftMargin="652.0000" RightMargin="212.0000" TopMargin="332.0000" BottomMargin="212.0000" TouchEnable="True" LeftEage="31" RightEage="31" TopEage="31" BottomEage="31" Scale9OriginX="31" Scale9OriginY="31" Scale9Width="34" Scale9Height="34" ctype="ImageViewObjectData">
+            <Size X="96.0000" Y="96.0000" />
+            <Children>
+              <AbstractNodeData Name="txtQuitGame" ActionTag="-497811069" Tag="46" IconVisible="False" LeftMargin="24.0000" RightMargin="24.0000" TopMargin="40.5000" BottomMargin="40.5000" LabelText="离开游戏" ctype="TextBMFontObjectData">
+                <Size X="48.0000" Y="15.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="48.0000" Y="48.0000" />
+                <Scale ScaleX="1.2071" ScaleY="4.6884" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5000" Y="0.5000" />
+                <PreSize X="0.5000" Y="0.1563" />
+              </AbstractNodeData>
+            </Children>
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="700.0000" Y="260.0000" />
+            <Scale ScaleX="2.6396" ScaleY="0.6096" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.7292" Y="0.4063" />
+            <PreSize X="0.1000" Y="0.1500" />
+            <FileData Type="Normal" Path="button2.png" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

@@ -5,14 +5,44 @@
       <RootFolder Name=".">
         <Folder Name="res">
           <Project Name="WorldMap.csd" Type="Layer" />
-          <Project Name="XiWuFang.csd" Type="Layer" />
           <Project Name="XiuWenFang.csd" Type="Layer" />
+          <Project Name="XiWuFang.csd" Type="Layer" />
+          <Project Name="SkillsPanel.csd" Type="Layer" />
         </Folder>
+        <Image Name="arrow.png" />
+        <Image Name="back.png" />
+        <Image Name="bg.jpg" />
+        <Image Name="bg1.jpg" />
+        <Image Name="bg2.jpg" />
+        <Image Name="button1.png" />
+        <Image Name="button2.png" />
+        <Image Name="exit.png" />
+        <Image Name="gamestart.jpg" />
+        <Image Name="left.png" />
         <Project Name="MainScene.csd" Type="Scene" />
+        <Image Name="man.png" />
+        <Image Name="map.png" />
         <TmxFile Name="palace.tmx" />
         <Project Name="PalaceScene.csd" Type="Scene" />
+        <Image Name="pk.png" />
+        <Image Name="quit.png" />
+        <Image Name="readbook.png" />
+        <Image Name="readbook2.png" />
+        <Image Name="readbook3.png" />
+        <Image Name="right.png" />
+        <Image Name="setting.png" />
+        <Image Name="shop.png" />
+        <Image Name="sword.png" />
+        <Image Name="teacher1.png" />
+        <Image Name="teacher2.png" />
+        <Image Name="think.png" />
+        <Image Name="tingyidian.jpg" />
+        <Project Name="TingYiScene.csd" Type="Scene" />
+        <Image Name="titui.png" />
         <TmxFile Name="worldmap.tmx" />
         <Image Name="worldmapbg.png" />
+        <Image Name="xiuwenfang.jpg" />
+        <Image Name="xiwufang.jpg" />
       </RootFolder>
     </Group>
   </SolutionFolder>

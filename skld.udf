@@ -33,8 +33,10 @@
           <FilePathData Path="PalaceScene.csd" />
           <FilePathData Path="res/XiWuFang.csd" />
           <FilePathData Path="res/XiuWenFang.csd" />
+          <FilePathData Path="TingYiScene.csd" />
+          <FilePathData Path="res/SkillsPanel.csd" />
         </OpenedDocuments>
-        <ActiveDocument Path="res/WorldMap.csd" />
+        <ActiveDocument Path="res/SkillsPanel.csd" />
       </Value>
     </Item>
   </Properties>

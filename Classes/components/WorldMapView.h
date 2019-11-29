@@ -37,6 +37,7 @@ private:
 	int getTheClickingCityId(cocos2d::Touch*);
 
 	cocos2d::Node* node = nullptr;
+	cocos2d::Node* bg = nullptr;
 	cocos2d::ui::Button* btnBack = nullptr;
 	cocos2d::ui::Text* lblCity = nullptr;
 	cocos2d::ui::Text* lblPopulation = nullptr;
