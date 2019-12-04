@@ -7,9 +7,7 @@
 using namespace rapidjson;
 USING_NS_CC;
 
-namespace city
-{
-
+START_NS_CITY
 CitiesManager::CitiesManager()
 {
 
@@ -82,4 +80,4 @@ std::shared_ptr<CityModel> CitiesManager::getCityModelById(std::uint32_t id)
 	if (allCities.find(id) == allCities.end()) { return nullptr; }
 	return allCities.at(id);
 }
-}
+END_NS_CITY

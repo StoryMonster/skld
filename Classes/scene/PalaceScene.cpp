@@ -1,16 +1,18 @@
 #include "PalaceScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
-#include "components/WorldMapView.h"
-#include "components/XiuWenFangView.h"
-#include "components/XiWuFangView.h"
+#include "plugin/WorldMapView.h"
 #include "plugin/PluginCenter.h"
+#include "plugin/PlayerInfoView.h"
+#include "XiuWenFangScene.h"
+#include "XiWuFangScene.h"
 #include "TingYiDianScene.h"
 #include "MainScene.h"
 
 
 USING_NS_CC;
 using namespace cocostudio::timeline;
+START_NS_SCENE
 
 Scene* PalaceScene::createScene()
 {
@@ -50,7 +52,7 @@ bool PalaceScene::init()
 		btnWorldMap = reinterpret_cast<ui::Button*>(rootNode->getChildByName("btnWorldMap"));
 		if (btnWorldMap != nullptr)
 		{
-			btnWorldMap->addClickEventListener([](Ref*) { plugin::showPlugin<components::WorldMapView>(); });
+			btnWorldMap->addClickEventListener([](Ref*) { plugin::PluginCenter::getInstance().showPlugin(std::make_shared<plugin::WorldMapView>()); });
 		}
 	}
 
@@ -78,6 +80,15 @@ bool PalaceScene::init()
 		if (btnSetting != nullptr)
 		{
 			btnSetting->addClickEventListener([](Ref*) { CCLOG("clicked the setting"); });
+		}
+	}
+
+	if (btnHead == nullptr)
+	{
+		btnHead = reinterpret_cast<ui::Button*>(rootNode->getChildByName("btnHead"));
+		if (btnHead != nullptr)
+		{
+			btnHead->addClickEventListener([](Ref*) { plugin::PluginCenter::getInstance().showPlugin(std::make_shared<plugin::PlayerInfoView>()); });
 		}
 	}
 
@@ -141,10 +152,10 @@ void PalaceScene::onPalaceMapClicked(const cocos2d::Vec2& pos)
 		Director::getInstance()->replaceScene(TingYiDianScene::createScene());
 		break;
 	case 2:
-		plugin::showPlugin<components::XiuWenFangView>();
+		Director::getInstance()->replaceScene(XiuWenFangScene::createScene());
 		break;
 	case 3:
-		plugin::showPlugin<components::XiWuFangView>();
+		Director::getInstance()->replaceScene(XiWuFangScene::createScene());
 		break;
 	default:
 		CCLOGWARN("No palace found for id=%d", id);
@@ -176,3 +187,4 @@ void PalaceScene::initPalaces()
 		}
 	}
 }
+END_NS_SCENE

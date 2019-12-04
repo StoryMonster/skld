@@ -1,0 +1,51 @@
+#pragma once
+#include "Namespaces.h"
+#include <cstdint>
+
+START_NS_COUNTRY
+
+enum class CountryType
+{
+	Unknown = 0,
+	Qin,
+	Qi,
+	Chu,
+	Zhao,
+	Wei,
+	Yan,
+	Han,
+	Zhou,
+	Yue,
+	Ba,
+	Shu,
+	YiQu,
+	Qiang,
+	XiongNu,
+	BaiYue
+};
+
+CountryType convert(std::uint32_t id)
+{
+	switch (id)
+	{
+	case 1: return CountryType::Qin;
+	case 2: return CountryType::Qi;
+	case 3: return CountryType::Chu;
+	case 4: return CountryType::Zhao;
+	case 5: return CountryType::Wei;
+	case 6: return CountryType::Yan;
+	case 7: return CountryType::Han;
+	case 8: return CountryType::Zhou;
+	case 9: return CountryType::Yue;
+	case 10: return CountryType::Ba;
+	case 11: return CountryType::Shu;
+	case 12: return CountryType::YiQu;
+	case 13: return CountryType::Qiang;
+	case 14: return CountryType::XiongNu;
+	case 15: return CountryType::BaiYue;
+	default: return CountryType::Unknown;
+	}
+}
+
+
+END_NS_COUNTRY

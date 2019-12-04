@@ -25,19 +25,5 @@
         <LastRunType Value="Windows" />
       </Value>
     </Item>
-    <Item Key="TabsParamsKey">
-      <Value ctype="TabsInfo">
-        <OpenedDocuments>
-          <FilePathData Path="MainScene.csd" />
-          <FilePathData Path="res/WorldMap.csd" />
-          <FilePathData Path="PalaceScene.csd" />
-          <FilePathData Path="res/XiWuFang.csd" />
-          <FilePathData Path="res/XiuWenFang.csd" />
-          <FilePathData Path="TingYiScene.csd" />
-          <FilePathData Path="res/SkillsPanel.csd" />
-        </OpenedDocuments>
-        <ActiveDocument Path="res/SkillsPanel.csd" />
-      </Value>
-    </Item>
   </Properties>
 </UserData>

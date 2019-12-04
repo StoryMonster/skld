@@ -16,7 +16,7 @@
             <PreSize X="1.0000" Y="1.0000" />
             <FileData Type="Normal" Path="bg1.jpg" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="palace" ActionTag="-2093950182" Tag="14" IconVisible="False" RightMargin="320.0000" TopMargin="-0.0002" BottomMargin="0.0003" ctype="GameMapObjectData">
+          <AbstractNodeData Name="palace" ActionTag="-2093950182" Tag="14" IconVisible="False" RightMargin="320.0000" TopMargin="-0.0003" BottomMargin="0.0003" ctype="GameMapObjectData">
             <Size X="640.0000" Y="640.0000" />
             <AnchorPoint />
             <Position Y="0.0003" />
@@ -65,6 +65,16 @@
             <PrePosition X="0.2604" Y="0.9375" />
             <PreSize X="0.0479" Y="0.0750" />
             <FileData Type="Normal" Path="setting.png" Plist="" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="btnHead" ActionTag="-1160731670" Tag="28" IconVisible="False" LeftMargin="327.0000" RightMargin="587.0000" TopMargin="16.0000" BottomMargin="576.0000" TouchEnable="True" LeftEage="9" RightEage="9" TopEage="10" BottomEage="10" Scale9OriginX="9" Scale9OriginY="10" Scale9Width="10" Scale9Height="12" ctype="ImageViewObjectData">
+            <Size X="46.0000" Y="48.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="350.0000" Y="600.0000" />
+            <Scale ScaleX="1.3000" ScaleY="1.4000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.3646" Y="0.9375" />
+            <PreSize X="0.0479" Y="0.0750" />
+            <FileData Type="Normal" Path="head.png" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

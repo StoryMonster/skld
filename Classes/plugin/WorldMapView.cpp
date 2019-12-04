@@ -2,8 +2,8 @@
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
-#include "../model/city/CitiesManager.h"
-#include "../model/country/CountryManager.h"
+#include "model/city/CitiesManager.h"
+#include "model/country/CountryManager.h"
 
 USING_NS_CC;
 using namespace cocostudio::timeline;
@@ -12,18 +12,7 @@ using namespace cocostudio::timeline;
 #pragma execution_character_set("utf-8")
 #endif
 
-namespace components
-{
-
-WorldMapView* WorldMapView::instance = new WorldMapView();
-
-WorldMapView::WorldMapView() {}
-
-WorldMapView* WorldMapView::createPlugin()
-{
-	WorldMapView::instance->init();
-	return WorldMapView::instance;
-}
+START_NS_PLUGIN
 
 void WorldMapView::init()
 {
@@ -63,37 +52,6 @@ void WorldMapView::init()
 	{
 		lblPopulation = reinterpret_cast<ui::Text*>(this->bg->getChildByName("lblPopulation"));
 		if (lblPopulation == nullptr) { CCLOGWARN("Cannot find the lblPopulation in %s", resPath.c_str()); }
-	}
-}
-
-Node* WorldMapView::getNode() noexcept
-{
-	return this->node;
-}
-
-std::string WorldMapView::getPluginName()
-{
-	return "WorldMap";
-}
-
-void WorldMapView::close()
-{
-	CCLOG("close plugin %s", this->getPluginName().c_str());
-	if (this->node != nullptr)
-	{
-		if (this->mapListener != nullptr)
-		{
-			this->map->getEventDispatcher()->removeEventListener(this->mapListener);
-			this->mapListener = nullptr;
-		}
-		this->node->removeAllChildren();
-		this->node->removeFromParent();
-		this->node = nullptr;
-		this->btnBack = nullptr;
-		this->map = nullptr;
-		this->lblCity = nullptr;
-		this->lblPopulation = nullptr;
-		this->bg = nullptr;
 	}
 }
 
@@ -179,4 +137,4 @@ void WorldMapView::onCityClicked(int id)
 	}
 }
 
-}
+END_NS_PLUGIN

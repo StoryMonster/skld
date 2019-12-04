@@ -4,10 +4,10 @@
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
         <Folder Name="res">
+          <Project Name="SkillItem.csd" Type="Layer" />
+          <Project Name="TalkBaseLayer.csd" Type="Layer" />
           <Project Name="WorldMap.csd" Type="Layer" />
-          <Project Name="XiuWenFang.csd" Type="Layer" />
-          <Project Name="XiWuFang.csd" Type="Layer" />
-          <Project Name="SkillsPanel.csd" Type="Layer" />
+          <Project Name="PlayerInfo.csd" Type="Layer" />
         </Folder>
         <Image Name="arrow.png" />
         <Image Name="back.png" />
@@ -18,6 +18,7 @@
         <Image Name="button2.png" />
         <Image Name="exit.png" />
         <Image Name="gamestart.jpg" />
+        <Image Name="head.png" />
         <Image Name="left.png" />
         <Project Name="MainScene.csd" Type="Scene" />
         <Image Name="man.png" />
@@ -42,7 +43,9 @@
         <TmxFile Name="worldmap.tmx" />
         <Image Name="worldmapbg.png" />
         <Image Name="xiuwenfang.jpg" />
+        <Project Name="XiuWenFangScene.csd" Type="Scene" />
         <Image Name="xiwufang.jpg" />
+        <Project Name="XiWuFangScene.csd" Type="Scene" />
       </RootFolder>
     </Group>
   </SolutionFolder>

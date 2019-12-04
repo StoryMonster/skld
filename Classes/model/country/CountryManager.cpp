@@ -5,8 +5,7 @@
 using namespace rapidjson;
 USING_NS_CC;
 
-namespace country
-{
+START_NS_COUNTRY
 CountryManager::CountryManager() {}
 
 CountryManager& CountryManager::getInstance()
@@ -70,4 +69,4 @@ std::shared_ptr<CountryModel> CountryManager::getCountryById(std::uint32_t id)
 	if (allCountries.find(id) == allCountries.end()) { return nullptr; }
 	return allCountries.at(id);
 }
-}
+END_NS_COUNTRY

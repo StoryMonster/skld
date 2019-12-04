@@ -1,7 +1,6 @@
 #include "CountryModel.h"
 
-namespace country
-{
+START_NS_COUNTRY
 
 CountryModel::CountryModel(std::uint32_t id, const std::string& name, std::uint32_t kingCode)
 	: countryId{id}
@@ -10,4 +9,4 @@ CountryModel::CountryModel(std::uint32_t id, const std::string& name, std::uint3
 {
 }
 
-}
+END_NS_COUNTRY

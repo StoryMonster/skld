@@ -1,9 +1,9 @@
 #pragma once
+#include "Namespaces.h"
 #include <cstdint>
 #include <string>
 
-namespace city
-{
+START_NS_CITY
 
 class CityModel
 {
@@ -57,4 +57,4 @@ private:
     std::string name = "";
 	bool isCapital = false;
 };
-}
+END_NS_CITY

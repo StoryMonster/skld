@@ -1,10 +1,9 @@
 #pragma once
+#include "Namespaces.h"
 #include <cstdint>
 #include <string>
 
-namespace country
-{
-
+START_NS_COUNTRY
 class CountryModel
 {
 public:
@@ -16,4 +15,4 @@ private:
 	::std::string name = "";
 	::std::uint32_t kingCode = 0;
 };
-}
+END_NS_COUNTRY

@@ -1,13 +1,13 @@
 #pragma once
-
-#include "cocos2d.h"
+#include "Namespaces.h"
+#include "IPlugin.h"
 #include "ui/UIButton.h"
 #include "ui/UIText.h"
 #include <string>
 #include <vector>
 
-namespace components
-{
+START_NS_PLUGIN
+
 struct CityNodeInfoInMap
 {
 	int id = 0;
@@ -18,25 +18,17 @@ struct CityNodeInfoInMap
 	std::string name = "";
 };
 
-class WorldMapView
+class WorldMapView : public IPlugin
 {
 public:
-	static WorldMapView* createPlugin();
-	static std::string getPluginName();
-	static WorldMapView* instance;
-
-	cocos2d::Node* getNode() noexcept;
-
-	void close();
+	std::string getPluginName() override { return "WorldMap"; };
+	void init() override;
 
 private:
-	WorldMapView();
-	void init();
 	void initMap();
 	void onCityClicked(int);
 	int getTheClickingCityId(cocos2d::Touch*);
 
-	cocos2d::Node* node = nullptr;
 	cocos2d::Node* bg = nullptr;
 	cocos2d::ui::Button* btnBack = nullptr;
 	cocos2d::ui::Text* lblCity = nullptr;
@@ -46,5 +38,4 @@ private:
 	std::vector<CityNodeInfoInMap> cityNodesInfo{};
 };
 
-
-}
+END_NS_PLUGIN

@@ -1,0 +1,10 @@
+{
+    "skills": [
+        {"id": 1, "name": "鼓舞", "type": 3, "description": "测试技能"},
+        {"id": 2, "name": "冲锋", "type": 2, "description": "测试技能"},
+        {"id": 3, "name": "纵火术", "type": 1, "description": "测试技能"},
+        {"id": 4, "name": "呼风唤雨", "type": 1, "description": "测试技能"},
+        {"id": 5, "name": "齐射", "type": 2, "description": "测试技能"},
+        {"id": 6, "name": "乱射", "type": 2, "description": "测试技能"}
+    ]
+}

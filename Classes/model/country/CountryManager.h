@@ -6,9 +6,7 @@
 #include "CountryModel.h"
 #include "json/document.h"
 
-namespace country
-{
-
+START_NS_COUNTRY
 class CountryManager
 {
 public:
@@ -22,4 +20,5 @@ private:
 
 	::std::map<::std::uint32_t, ::std::shared_ptr<CountryModel>> allCountries{};
 };
-}
+
+END_NS_COUNTRY

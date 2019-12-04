@@ -2,12 +2,14 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "plugin/PluginCenter.h"
-#include "components/WorldMapView.h"
+#include "plugin/WorldMapView.h"
 #include "PalaceScene.h"
 
 
 USING_NS_CC;
 using namespace cocostudio::timeline;
+START_NS_SCENE
+
 constexpr int OFFICIAL_NUM = 8;
 
 Scene* TingYiDianScene::createScene()
@@ -46,7 +48,7 @@ bool TingYiDianScene::init()
 		btnWorldMap = reinterpret_cast<ui::Button*>(rootNode->getChildByName("btnWorldMap"));
 		if (btnWorldMap != nullptr)
 		{
-			btnWorldMap->addClickEventListener([](Ref*) { plugin::showPlugin<components::WorldMapView>(); });
+			btnWorldMap->addClickEventListener([](Ref*) { plugin::PluginCenter::getInstance().showPlugin(std::make_shared<plugin::WorldMapView>()); });
 		}
 	}
 
@@ -70,6 +72,7 @@ bool TingYiDianScene::init()
 			onTouchBegan(touch);
 			return true;
 		};
+		eventListener->setSwallowTouches(true);
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(eventListener, this);
 	}
 	return true;
@@ -151,3 +154,4 @@ int TingYiDianScene::getClickedOfficialIndex(const Vec2& touchPos)
 	}
 	return -1;
 }
+END_NS_SCENE

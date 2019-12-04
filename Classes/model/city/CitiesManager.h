@@ -1,12 +1,12 @@
 #pragma once
+#include "Namespaces.h"
 #include <string>
 #include <map>
 #include <memory>
 #include "CityModel.h"
 #include "json/document.h"
 
-namespace city
-{
+START_NS_CITY
 
 class CitiesManager
 {
@@ -21,4 +21,4 @@ private:
 
 	std::map<std::uint32_t, std::shared_ptr<CityModel>> allCities{};
 };
-}
+END_NS_CITY

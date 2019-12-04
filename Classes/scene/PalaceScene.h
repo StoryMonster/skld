@@ -1,9 +1,10 @@
 #pragma once
-
+#include "Namespaces.h"
 #include "cocos2d.h"
 #include "ui/UIButton.h"
 #include <vector>
 
+START_NS_SCENE
 struct PalaceInfo
 {
 	int id = 0;
@@ -35,6 +36,8 @@ private:
 	cocos2d::ui::Button* btnExit = nullptr;
 	cocos2d::ui::Button* btnShop = nullptr;
 	cocos2d::ui::Button* btnSetting = nullptr;
+	cocos2d::ui::Button* btnHead = nullptr;
 	std::vector<PalaceInfo> palaces{};
 };
 
+END_NS_SCENE

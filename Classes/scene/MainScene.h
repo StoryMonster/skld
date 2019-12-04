@@ -1,7 +1,9 @@
 #pragma once
-
+#include "Namespaces.h"
 #include "cocos2d.h"
 #include "ui/UIButton.h"
+
+START_NS_SCENE
 
 class MainScene : public cocos2d::Layer
 {
@@ -19,4 +21,6 @@ private:
 	cocos2d::ui::Button* btnGameStart = nullptr;
 	cocos2d::ui::Button* btnQuitGame = nullptr;
 };
+
+END_NS_SCENE
 

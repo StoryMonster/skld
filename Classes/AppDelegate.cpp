@@ -1,7 +1,8 @@
 #include "AppDelegate.h"
-#include "MainScene.h"
+#include "scene/MainScene.h"
 #include "model/city/CitiesManager.h"
 #include "model/country/CountryManager.h"
+#include "model/skill/SkillManager.h"
 
 USING_NS_CC;
 
@@ -44,7 +45,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     FileUtils::getInstance()->addSearchPath("res");
 
     // create a scene. it's an autorelease object
-    auto scene = MainScene::createScene();
+    auto scene = scene::MainScene::createScene();
 
     // run
     director->runWithScene(scene);
@@ -52,6 +53,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	// load configuration files
 	city::CitiesManager::getInstance().loadCities();
 	country::CountryManager::getInstance().loadCountries();
+	skill::SkillManager::getInstance().loadSkills();
 
     return true;
 }

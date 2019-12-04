@@ -1,8 +1,10 @@
 #pragma once
-
+#include "Namespaces.h"
 #include "cocos2d.h"
 #include "ui/UIButton.h"
 #include <vector>
+
+START_NS_SCENE
 
 class TingYiDianScene : public cocos2d::Layer
 {
@@ -39,3 +41,5 @@ private:
 	std::vector<OfficialInfo> officials{};
 	cocos2d::EventListenerTouchOneByOne* eventListener = nullptr;
 };
+
+END_NS_SCENE

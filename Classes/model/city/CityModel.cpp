@@ -1,7 +1,6 @@
 #include "CityModel.h"
 
-namespace city
-{
+START_NS_CITY
 
 CityModel::CityModel(std::uint32_t cityCode, const std::string& name, std::uint32_t countryCode, std::uint32_t officialCode, std::uint32_t population, bool isCapital)
 	: cityCode{cityCode}
@@ -78,4 +77,4 @@ void CityModel::decreasePopulation(std::uint32_t)
 {
 }
 
-}
+END_NS_CITY

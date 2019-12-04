@@ -1,33 +1,25 @@
 #pragma once
-
+#include "Namespaces.h"
 #include "cocos2d.h"
 #include "ui/UIButton.h"
 #include "ui/UIText.h"
 
-namespace components
-{
+START_NS_SCENE
 
-class XiuWenFangView
+class XiWuFangScene : public cocos2d::Layer
 {
 public:
-	static XiuWenFangView* createPlugin();
-	static std::string getPluginName();
-	static XiuWenFangView* instance;
-
-	cocos2d::Node* getNode() noexcept;
-	void close();
+	static cocos2d::Scene* createScene();
+	bool init() override;
+	CREATE_FUNC(XiWuFangScene);
 
 private:
-	XiuWenFangView();
-	void init();
 	void playTheAnimation();
 	void setTrainingSubject(const std::string&);
+	void quit();
 
-	cocos2d::Node* node = nullptr;
-	cocos2d::Node* bg = nullptr;
 	cocos2d::ui::Button* btnBack = nullptr;
 	cocos2d::ui::Button* btnTeacher = nullptr;
 	cocos2d::ui::Text* txtTraining = nullptr;
 };
-
-}
+END_NS_SCENE

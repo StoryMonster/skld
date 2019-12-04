@@ -74,7 +74,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(COCOS_X_ROOT)\cocos2d-x-3.10\cocos\audio\include;$(COCOS_X_ROOT)\cocos2d-x-3.10\external;$(COCOS_X_ROOT)\cocos2d-x-3.10\external\chipmunk\include\chipmunk;$(COCOS_X_ROOT)\cocos2d-x-3.10\extensions;..\Classes;..;%(AdditionalIncludeDirectories);$(_COCOS_HEADER_WIN32_BEGIN);$(_COCOS_HEADER_WIN32_END)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(COCOS_X_ROOT)\cocos2d-x-3.10;$(COCOS_X_ROOT)\cocos2d-x-3.10\cocos\audio\include;$(COCOS_X_ROOT)\cocos2d-x-3.10\external;$(COCOS_X_ROOT)\cocos2d-x-3.10\external\chipmunk\include\chipmunk;$(COCOS_X_ROOT)\cocos2d-x-3.10\extensions;..\Classes;..;%(AdditionalIncludeDirectories);$(_COCOS_HEADER_WIN32_BEGIN);$(_COCOS_HEADER_WIN32_END)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -150,34 +150,47 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
-    <ClCompile Include="..\Classes\components\ChooseSkillView.cpp" />
-    <ClCompile Include="..\Classes\components\WorldMapView.cpp" />
-    <ClCompile Include="..\Classes\components\XiuWenFangVew.cpp" />
-    <ClCompile Include="..\Classes\components\XiWuFangView.cpp" />
-    <ClCompile Include="..\Classes\MainScene.cpp" />
+    <ClCompile Include="..\Classes\component\SkillTableView.cpp" />
     <ClCompile Include="..\Classes\model\city\CitiesManager.cpp" />
     <ClCompile Include="..\Classes\model\city\CityModel.cpp" />
     <ClCompile Include="..\Classes\model\country\CountryManager.cpp" />
     <ClCompile Include="..\Classes\model\country\CountryModel.cpp" />
-    <ClCompile Include="..\Classes\PalaceScene.cpp" />
-    <ClCompile Include="..\Classes\TingYiDianScene.cpp" />
+    <ClCompile Include="..\Classes\model\Player.cpp" />
+    <ClCompile Include="..\Classes\model\skill\SkillManager.cpp" />
+    <ClCompile Include="..\Classes\model\skill\SkillModel.cpp" />
+    <ClCompile Include="..\Classes\plugin\ChooseSkillView.cpp" />
+    <ClCompile Include="..\Classes\plugin\IPlugin.cpp" />
+    <ClCompile Include="..\Classes\plugin\PlayerInfoView.cpp" />
+    <ClCompile Include="..\Classes\plugin\PluginCenter.cpp" />
+    <ClCompile Include="..\Classes\plugin\WorldMapView.cpp" />
+    <ClCompile Include="..\Classes\scene\MainScene.cpp" />
+    <ClCompile Include="..\Classes\scene\PalaceScene.cpp" />
+    <ClCompile Include="..\Classes\scene\TingYiDianScene.cpp" />
+    <ClCompile Include="..\Classes\scene\XiuWenFangScene.cpp" />
+    <ClCompile Include="..\Classes\scene\XiWuFangScene.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
-    <ClInclude Include="..\Classes\components\ChooseSkillView.h" />
-    <ClInclude Include="..\Classes\components\WorldMapView.h" />
-    <ClInclude Include="..\Classes\components\XiuWenFangView.h" />
-    <ClInclude Include="..\Classes\components\XiWuFangView.h" />
-    <ClInclude Include="..\Classes\MainScene.h" />
+    <ClInclude Include="..\Classes\component\SkillTableView.h" />
     <ClInclude Include="..\Classes\model\city\CitiesManager.h" />
     <ClInclude Include="..\Classes\model\city\CityModel.h" />
     <ClInclude Include="..\Classes\model\country\CountryManager.h" />
     <ClInclude Include="..\Classes\model\country\CountryModel.h" />
-    <ClInclude Include="..\Classes\PalaceScene.h" />
+    <ClInclude Include="..\Classes\model\Player.h" />
+    <ClInclude Include="..\Classes\model\skill\SkillManager.h" />
+    <ClInclude Include="..\Classes\model\skill\SkillModel.h" />
+    <ClInclude Include="..\Classes\Namespaces.h" />
+    <ClInclude Include="..\Classes\plugin\ChooseSkillView.h" />
     <ClInclude Include="..\Classes\plugin\IPlugin.h" />
+    <ClInclude Include="..\Classes\plugin\PlayerInfoView.h" />
     <ClInclude Include="..\Classes\plugin\PluginCenter.h" />
-    <ClInclude Include="..\Classes\TingYiDianScene.h" />
+    <ClInclude Include="..\Classes\plugin\WorldMapView.h" />
+    <ClInclude Include="..\Classes\scene\MainScene.h" />
+    <ClInclude Include="..\Classes\scene\PalaceScene.h" />
+    <ClInclude Include="..\Classes\scene\TingYiDianScene.h" />
+    <ClInclude Include="..\Classes\scene\XiuWenFangScene.h" />
+    <ClInclude Include="..\Classes\scene\XiWuFangScene.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>
