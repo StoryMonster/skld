@@ -51,9 +51,6 @@
     <ClCompile Include="..\Classes\scene\XiWuFangScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\component\SkillTableView.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\model\skill\SkillManager.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -117,9 +114,6 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Namespaces.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\component\SkillTableView.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\model\skill\SkillManager.h">

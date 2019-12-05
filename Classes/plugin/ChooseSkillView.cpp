@@ -2,7 +2,7 @@
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
-#include "component/SkillTableView.h"
+#include "model/skill/SkillManager.h"
 
 USING_NS_CC;
 using namespace cocostudio::timeline;
@@ -15,7 +15,7 @@ START_NS_PLUGIN
 
 void ChooseSkillView::init()
 {
-	const std::string resPath = "res/res/TalkBaseLayer.csb";
+	const std::string resPath = "res/res/ChooseSkillPanel.csb";
 	this->node = CSLoader::createNode(resPath);
 
 	if (this->node == nullptr)
@@ -31,13 +31,65 @@ void ChooseSkillView::init()
 		else { btnBack->addClickEventListener([this](Ref*) { this->close(); }); }
 	}
 
-	if (txtTalk == nullptr) { txtTalk = reinterpret_cast<ui::Text*>(this->node->getChildByName("lblTalk")); }
-
-	if (skillsView == nullptr)
+	items.clear();
+	if (bgSkills == nullptr)
 	{
-		skillsView = component::SkillTableView::create();
-		if (skillsView == nullptr) {}
-		else { this->node->addChild(skillsView); }
+		bgSkills = node->getChildByName("bgSkills");
+		if (bgSkills != nullptr)
+		{
+			auto scrollbar = bgSkills->getChildByName("scrollbar");
+			if (scrollbar != nullptr)
+			{
+				btnNext = reinterpret_cast<ui::Button*>(scrollbar->getChildByName("btnNext"));
+				btnPrev = reinterpret_cast<ui::Button*>(scrollbar->getChildByName("btnPrev"));
+				btnSlider = reinterpret_cast<ui::Button*>(scrollbar->getChildByName("btnSlider"));
+			}
+			for (auto i = 0; i < 5; ++i)
+			{
+				auto item = reinterpret_cast<ui::Button*>(bgSkills->getChildByName("skillitem" + std::to_string(i+1)));
+				if (item != nullptr)
+				{
+					items.push_back(item);
+					item->addClickEventListener([this, i](Ref*) { onItemClicked(i); });
+				}
+			}
+		}
 	}
+
+	if (btnNext != nullptr)
+	{
+		btnNext->addClickEventListener([](Ref*) { CCLOG("clicked btnNext"); });
+	}
+
+	if (btnPrev != nullptr)
+	{
+		btnPrev->addClickEventListener([](Ref*) { CCLOG("clicked btnPrev"); });
+	}
+
+	if (btnSlider != nullptr)
+	{
+		btnSlider->addClickEventListener([](Ref*) { CCLOG("clicked btnSlider"); });
+	}
+
+	fillData();
+}
+
+void ChooseSkillView::fillData()
+{
+	for (auto i = 0; i < items.size(); ++i)
+	{
+		auto lbl = reinterpret_cast<ui::Text*>(items[i]->getChildByName("lblSkillName"));
+		const auto skill = skill::SkillManager::getInstance().getSkillById(i+1);
+		if (lbl != nullptr)
+		{
+			lbl->setString(skill->getSkillName());
+		}
+	}
+}
+
+void ChooseSkillView::onItemClicked(std::uint32_t index)
+{
+	if (index >= items.size()) { return; }
+	CCLOG("clicked item %d", index);
 }
 END_NS_PLUGIN

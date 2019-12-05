@@ -4,12 +4,6 @@
 #include "ui/UIButton.h"
 #include "ui/UIText.h"
 
-
-namespace component
-{
-class SkillTableView;
-}
-
 START_NS_PLUGIN
 
 class ChooseSkillView : public IPlugin
@@ -19,9 +13,15 @@ public:
 	void init() override;
 
 private:
+	void onItemClicked(std::uint32_t index);
+	void fillData();
+
 	cocos2d::ui::Button* btnBack = nullptr;
-	cocos2d::ui::Text* txtTalk = nullptr;
-	component::SkillTableView* skillsView = nullptr;
+	cocos2d::Node* bgSkills = nullptr;
+	std::vector<cocos2d::ui::Button*> items{};
+	cocos2d::ui::Button* btnNext = nullptr;
+	cocos2d::ui::Button* btnPrev = nullptr;
+	cocos2d::ui::Button* btnSlider = nullptr;
 };
 
 END_NS_PLUGIN
