@@ -2,7 +2,9 @@
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+#include "model/player.h"
 #include "model/skill/SkillManager.h"
+#include <cmath>
 
 USING_NS_CC;
 using namespace cocostudio::timeline;
@@ -12,6 +14,12 @@ using namespace cocostudio::timeline;
 #endif
 
 START_NS_PLUGIN
+
+ChooseSkillView::ChooseSkillView(const std::vector<skill::SkillType>& allowedSkillTypes)
+	: IPlugin()
+	, allowedSkillTypes{allowedSkillTypes}
+{
+}
 
 void ChooseSkillView::init()
 {
@@ -37,13 +45,6 @@ void ChooseSkillView::init()
 		bgSkills = node->getChildByName("bgSkills");
 		if (bgSkills != nullptr)
 		{
-			auto scrollbar = bgSkills->getChildByName("scrollbar");
-			if (scrollbar != nullptr)
-			{
-				btnNext = reinterpret_cast<ui::Button*>(scrollbar->getChildByName("btnNext"));
-				btnPrev = reinterpret_cast<ui::Button*>(scrollbar->getChildByName("btnPrev"));
-				btnSlider = reinterpret_cast<ui::Button*>(scrollbar->getChildByName("btnSlider"));
-			}
 			for (auto i = 0; i < 5; ++i)
 			{
 				auto item = reinterpret_cast<ui::Button*>(bgSkills->getChildByName("skillitem" + std::to_string(i+1)));
@@ -56,40 +57,122 @@ void ChooseSkillView::init()
 		}
 	}
 
-	if (btnNext != nullptr)
+	if (btnNext == nullptr)
 	{
-		btnNext->addClickEventListener([](Ref*) { CCLOG("clicked btnNext"); });
+		btnNext = reinterpret_cast<ui::Button*>(this->node->getChildByName("btnNext"));
+		if (btnNext != nullptr)
+		{
+			btnNext->addClickEventListener([this](Ref*) { onBtnNextClicked(); });
+		}
 	}
 
-	if (btnPrev != nullptr)
+	if (btnPrev == nullptr)
 	{
-		btnPrev->addClickEventListener([](Ref*) { CCLOG("clicked btnPrev"); });
+		btnPrev = reinterpret_cast<ui::Button*>(this->node->getChildByName("btnPrev"));
+		if (btnPrev != nullptr)
+		{
+			btnPrev->addClickEventListener([this](Ref*) { onBtnPrevClicked(); });
+		}
 	}
 
-	if (btnSlider != nullptr)
+	if (txtPageCounter == nullptr)
 	{
-		btnSlider->addClickEventListener([](Ref*) { CCLOG("clicked btnSlider"); });
+		txtPageCounter = reinterpret_cast<ui::Text*>(this->node->getChildByName("txtPageCounter"));
 	}
 
-	fillData();
+	extractPlayerBoughtSkills();
+	onBtnNextClicked();
 }
 
-void ChooseSkillView::fillData()
+void ChooseSkillView::extractPlayerBoughtSkills()
 {
-	for (auto i = 0; i < items.size(); ++i)
+	skillIds.clear();
+	const auto allSkillIds = Player::getInstance().getBoughtSkills();
+	for (const auto skillId : allSkillIds)
+	{
+		if (std::find_if(allowedSkillTypes.begin(), allowedSkillTypes.end(), [this, skillId](const auto type) {
+			const auto skill = skill::SkillManager::getInstance().getSkillById(skillId);
+			if (skill == nullptr) { return false; }
+			return skill->getSkillType() == type;
+		    }) != allowedSkillTypes.end())
+		{
+			skillIds.push_back(skillId);
+		}
+	}
+}
+
+void ChooseSkillView::updateButtonStatus(std::uint32_t startIndex, std::uint32_t endIndex)
+{
+	if (btnPrev != nullptr)
+	{
+		btnPrev->setTouchEnabled(startIndex > 0);
+	}
+
+	if (btnNext != nullptr)
+	{
+		btnNext->setTouchEnabled(endIndex < skillIds.size());
+	}
+}
+
+void ChooseSkillView::onBtnNextClicked()
+{
+	++currentPageIndex;
+	const auto startIndex = items.size() * (currentPageIndex - 1);
+	const auto endIndex = std::min(items.size() * currentPageIndex, skillIds.size());
+	updateButtonStatus(startIndex, endIndex);
+	fillData(startIndex, endIndex);
+}
+
+void ChooseSkillView::onBtnPrevClicked()
+{
+	if (currentPageIndex <= 1) { return; }
+	--currentPageIndex;
+	const auto startIndex = items.size() * (currentPageIndex - 1);
+	const auto endIndex = std::min(items.size() * currentPageIndex, skillIds.size());
+	updateButtonStatus(startIndex, endIndex);
+	fillData(startIndex, endIndex);
+}
+
+void ChooseSkillView::fillData(std::uint32_t startIndex, std::uint32_t endIndex)
+{
+	for (size_t i = 0; i < items.size(); ++i)
 	{
 		auto lbl = reinterpret_cast<ui::Text*>(items[i]->getChildByName("lblSkillName"));
-		const auto skill = skill::SkillManager::getInstance().getSkillById(i+1);
-		if (lbl != nullptr)
+		if (lbl == nullptr) { continue; }
+		lbl->setString("");
+		items[i]->setTouchEnabled(false);
+		if (startIndex + i < endIndex)
 		{
-			lbl->setString(skill->getSkillName());
+			const auto skill = skill::SkillManager::getInstance().getSkillById(skillIds.at(startIndex + i));
+			if (skill != nullptr)
+			{
+				lbl->setString(skill->getSkillName());
+				items[i]->setTouchEnabled(true);
+			}
 		}
+	}
+	if (txtPageCounter != nullptr)
+	{
+		const std::uint32_t totalPageNum = ceil(skillIds.size() * 1.0 / items.size());
+		txtPageCounter->setString(std::to_string(currentPageIndex)+ "/" + std::to_string(totalPageNum));
 	}
 }
 
 void ChooseSkillView::onItemClicked(std::uint32_t index)
 {
 	if (index >= items.size()) { return; }
-	CCLOG("clicked item %d", index);
+
+	time_t now = time(0);
+	if (difftime(now, lastClickSkillTime) < 1) { return; }
+	lastClickSkillTime = now;
+
+	const auto skillId = skillIds.at(items.size() * (currentPageIndex - 1) + index);
+	const auto skill = skill::SkillManager::getInstance().getSkillById(skillId);
+	if (skill != nullptr && node != nullptr)
+	{
+		CCLOG("clicked skill %s", skill->getSkillName().c_str());
+		node->getEventDispatcher()->dispatchCustomEvent("EVT_CHOOSE_SKILL_TO_TRAIN", reinterpret_cast<void*>(const_cast<std::uint32_t*>(&skillId)));
+		close();
+	}
 }
 END_NS_PLUGIN

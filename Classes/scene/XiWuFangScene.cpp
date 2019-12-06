@@ -5,6 +5,8 @@
 #include "plugin/ChooseSkillView.h"
 #include "plugin/PluginCenter.h"
 #include "PalaceScene.h"
+#include "model/skill/SkillManager.h"
+#include "model/Player.h"
 
 USING_NS_CC;
 using namespace cocostudio::timeline;
@@ -45,18 +47,40 @@ bool XiWuFangScene::init()
 	if (txtTraining == nullptr)
 	{
 		txtTraining = reinterpret_cast<ui::Text*>(rootNode->getChildByName("txtTraining"));
-		setTrainingSubject("ÌåÄÜÑµÁ·");
 	}
 
 	if (btnTeacher == nullptr)
 	{
 		btnTeacher = reinterpret_cast<ui::Button*>(rootNode->getChildByName("btnTeacher"));
 		if (btnTeacher == nullptr) { CCLOGWARN("Cannot find the btnTeacher in %s", resPath.c_str()); }
-		else { btnTeacher->addClickEventListener([this](Ref*) { plugin::PluginCenter::getInstance().showPlugin(std::make_shared<plugin::ChooseSkillView>()); }); }
+		else { btnTeacher->addClickEventListener([this](Ref*) { onTeacherClicked(); }); }
 	}
 
-	playTheAnimation();
 	return true;
+}
+
+void XiWuFangScene::onTeacherClicked()
+{
+	if (trainingSkillId != 0)
+	{
+		CCLOG("Today is too late, please come here next time!");
+		return;
+	}
+	const std::vector<skill::SkillType> type{ skill::SkillType::WarSkill, skill::SkillType::StrengthSkill };
+	plugin::PluginCenter::getInstance().showPlugin(std::make_shared<plugin::ChooseSkillView>(type));
+
+	_eventDispatcher->addCustomEventListener("EVT_CHOOSE_SKILL_TO_TRAIN", [this](const EventCustom* event) {
+		_eventDispatcher->removeCustomEventListeners("EVT_CHOOSE_SKILL_TO_TRAIN");
+		CCLOG("custom event received");
+		const auto skillId = reinterpret_cast<std::uint32_t*>(event->getUserData());
+		const auto skill = skill::SkillManager::getInstance().getSkillById(*skillId);
+		if (skill != nullptr)
+		{
+			trainingSkillId = *skillId;
+			setTrainingSubject(skill->getSkillName());
+			playTheAnimation();
+		}
+	});
 }
 
 void XiWuFangScene::quit()
@@ -73,9 +97,40 @@ void XiWuFangScene::playTheAnimation()
 		CCLOGWARN("Xi Wu animation is not found!");
 		return;
 	}
+	CCLOG("Playing XiWuFang animation");
 	this->runAction(action);
-	action->addFrameEndCallFunc(4, "", []() { CCLOG("One round animation end"); });
+	action->addFrameEndCallFunc(4, "", [this]() { onTrainingEnd(); });
 	action->gotoFrameAndPlay(0, false);
+}
+
+void XiWuFangScene::onTrainingEnd()
+{
+	if (trainingSkillId == 0) { return; }
+	const auto skill = skill::SkillManager::getInstance().getSkillById(trainingSkillId);
+	const auto ret = Player::getInstance().learnSkill(trainingSkillId);
+	if (ret == -1)
+	{
+		CCLOG("Congratuation! You learnt %s", skill->getSkillName().c_str());
+	}
+	else if (ret == -2)
+	{
+		CCLOG("You have already learnt %s, so you learn it fail", skill->getSkillName().c_str());
+		trainingSkillId = 0;
+	}
+	else if (ret == -3)
+	{
+		CCLOG("You cannot learnt %s, since you don't have it", skill->getSkillName().c_str());
+		trainingSkillId = 0;
+	}
+	else if (ret == -4)
+	{
+		CCLOG("%s is unknown", skill->getSkillName().c_str());
+		trainingSkillId = 0;
+	}
+	else if (ret >= 0)
+	{
+		CCLOG("%s exp + %d", skill->getSkillName().c_str(), ret);
+	}
 }
 
 void XiWuFangScene::setTrainingSubject(const std::string& name)

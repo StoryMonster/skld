@@ -29,8 +29,9 @@
       <Value ctype="TabsInfo">
         <OpenedDocuments>
           <FilePathData Path="res/ChooseSkillPanel.csd" />
+          <FilePathData Path="res/OfficierList.csd" />
         </OpenedDocuments>
-        <ActiveDocument Path="res/ChooseSkillPanel.csd" />
+        <ActiveDocument Path="res/OfficierList.csd" />
       </Value>
     </Item>
   </Properties>

@@ -17,9 +17,12 @@ private:
 	void playTheAnimation();
 	void setTrainingSubject(const std::string&);
 	void quit();
+	void onTrainingEnd();
+	void onTeacherClicked();
 
 	cocos2d::ui::Button* btnBack = nullptr;
 	cocos2d::ui::Button* btnTeacher = nullptr;
 	cocos2d::ui::Text* txtTraining = nullptr;
+	std::uint32_t trainingSkillId = 0;
 };
 END_NS_SCENE

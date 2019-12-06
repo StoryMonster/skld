@@ -3,6 +3,7 @@
 #include "model/city/CitiesManager.h"
 #include "model/country/CountryManager.h"
 #include "model/skill/SkillManager.h"
+#include "model/player.h"
 
 USING_NS_CC;
 
@@ -26,34 +27,39 @@ void AppDelegate::initGLContextAttrs()
 }
 
 bool AppDelegate::applicationDidFinishLaunching() {
-    // initialize director
-    auto director = Director::getInstance();
-    auto glview = director->getOpenGLView();
-    if(!glview) {
-        glview = GLViewImpl::createWithRect("skld", Rect(0, 0, 960, 640));
-        director->setOpenGLView(glview);
-    }
+	// initialize director
+	auto director = Director::getInstance();
+	auto glview = director->getOpenGLView();
+	if (!glview) {
+		glview = GLViewImpl::createWithRect("skld", Rect(0, 0, 960, 640));
+		director->setOpenGLView(glview);
+	}
 
-    director->getOpenGLView()->setDesignResolutionSize(960, 640, ResolutionPolicy::SHOW_ALL);
+	director->getOpenGLView()->setDesignResolutionSize(960, 640, ResolutionPolicy::SHOW_ALL);
 
-    // turn on display FPS
-    director->setDisplayStats(true);
+	// turn on display FPS
+	director->setDisplayStats(true);
 
-    // set FPS. the default value is 1.0/60 if you don't call this
-    director->setAnimationInterval(1.0f / 60);
+	// set FPS. the default value is 1.0/60 if you don't call this
+	director->setAnimationInterval(1.0f / 60);
 
-    FileUtils::getInstance()->addSearchPath("res");
+	FileUtils::getInstance()->addSearchPath("res");
 
-    // create a scene. it's an autorelease object
-    auto scene = scene::MainScene::createScene();
+	// create a scene. it's an autorelease object
+	auto scene = scene::MainScene::createScene();
 
-    // run
-    director->runWithScene(scene);
+	// run
+	director->runWithScene(scene);
 
 	// load configuration files
 	city::CitiesManager::getInstance().loadCities();
 	country::CountryManager::getInstance().loadCountries();
 	skill::SkillManager::getInstance().loadSkills();
+	Player::getInstance().setCountryToGovern(1);
+	for (size_t i = 1; i <= 11; ++i)
+	{
+		Player::getInstance().buyASkill(i);
+	}
 
     return true;
 }

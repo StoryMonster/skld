@@ -4,10 +4,11 @@
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
         <Folder Name="res">
+          <Project Name="ChooseSkillPanel.csd" Type="Layer" />
           <Project Name="PlayerInfo.csd" Type="Layer" />
           <Project Name="SkillItem.csd" Type="Layer" />
-          <Project Name="ChooseSkillPanel.csd" Type="Layer" />
           <Project Name="WorldMap.csd" Type="Layer" />
+          <Project Name="OfficierList.csd" Type="Layer" />
         </Folder>
         <Image Name="arrow.png" />
         <Image Name="back.png" />

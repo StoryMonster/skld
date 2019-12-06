@@ -1,10 +1,15 @@
 {
     "skills": [
-        {"id": 1, "name": "鼓舞", "type": 3, "description": "测试技能"},
-        {"id": 2, "name": "冲锋", "type": 2, "description": "测试技能"},
-        {"id": 3, "name": "纵火术", "type": 1, "description": "测试技能"},
-        {"id": 4, "name": "呼风唤雨", "type": 1, "description": "测试技能"},
-        {"id": 5, "name": "齐射", "type": 2, "description": "测试技能"},
-        {"id": 6, "name": "乱射", "type": 2, "description": "测试技能"}
+        {"id": 1, "name": "通识课程", "type": 1, "description": "测试技能"},
+        {"id": 2, "name": "体能训练", "type": 2, "description": "测试技能"},
+        {"id": 3, "name": "纵火术", "type": 3, "description": "测试技能"},
+        {"id": 4, "name": "呼风唤雨", "type": 3, "description": "测试技能"},
+        {"id": 5, "name": "齐射", "type": 4, "description": "测试技能"},
+        {"id": 6, "name": "鼓舞", "type": 4, "description": "测试技能"},
+        {"id": 7, "name": "冲锋", "type": 4, "description": "测试技能"},
+        {"id": 8, "name": "乱射", "type": 4, "description": "测试技能"},
+        {"id": 9, "name": "背水一战", "type": 4, "description": "测试技能"},
+        {"id": 10, "name": "破釜沉舟", "type": 4, "description": "测试技能"},
+        {"id": 11, "name": "移花接木", "type": 1, "description": "测试技能"}
     ]
 }

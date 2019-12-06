@@ -9,9 +9,10 @@ SkillType convert(std::uint32_t val)
 {
 	switch (val)
 	{
-	case 1: return SkillType::MagicSkill;
-	case 2: return SkillType::PhysicSkill;
-	case 3: return SkillType::SpiritSkill;
+	case 1: return SkillType::KnowledgeSkill;
+	case 2: return SkillType::StrengthSkill;
+	case 3: return SkillType::MagicSkill;
+	case 4: return SkillType::WarSkill;
 	default: return SkillType::Unknown;
 	}
 }
