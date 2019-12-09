@@ -154,6 +154,10 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\model\city\CityModel.cpp" />
     <ClCompile Include="..\Classes\model\country\CountryManager.cpp" />
     <ClCompile Include="..\Classes\model\country\CountryModel.cpp" />
+    <ClCompile Include="..\Classes\model\duty\DutyManager.cpp" />
+    <ClCompile Include="..\Classes\model\duty\DutyModel.cpp" />
+    <ClCompile Include="..\Classes\model\duty\TitleManager.cpp" />
+    <ClCompile Include="..\Classes\model\duty\TitleModel.cpp" />
     <ClCompile Include="..\Classes\model\Player.cpp" />
     <ClCompile Include="..\Classes\model\skill\SkillManager.cpp" />
     <ClCompile Include="..\Classes\model\skill\SkillModel.cpp" />
@@ -175,6 +179,10 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\model\city\CityModel.h" />
     <ClInclude Include="..\Classes\model\country\CountryManager.h" />
     <ClInclude Include="..\Classes\model\country\CountryModel.h" />
+    <ClInclude Include="..\Classes\model\duty\DutyManager.h" />
+    <ClInclude Include="..\Classes\model\duty\DutyModel.h" />
+    <ClInclude Include="..\Classes\model\duty\TitleManager.h" />
+    <ClInclude Include="..\Classes\model\duty\TitleModel.h" />
     <ClInclude Include="..\Classes\model\Player.h" />
     <ClInclude Include="..\Classes\model\skill\SkillManager.h" />
     <ClInclude Include="..\Classes\model\skill\SkillModel.h" />

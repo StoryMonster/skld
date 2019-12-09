@@ -24,3 +24,7 @@
 #define START_NS_SKILL   namespace skill {
 #define END_NS_SKILL     }
 #define USING_NS_SKILL   using skill;
+
+#define START_NS_DUTY namespace duty {
+#define END_NS_DUTY   }
+#define USING_NS_DUTY using duty;

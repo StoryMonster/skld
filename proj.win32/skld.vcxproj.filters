@@ -69,6 +69,18 @@
     <ClCompile Include="..\Classes\plugin\PluginCenter.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\model\duty\DutyModel.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\model\duty\TitleManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\model\duty\TitleModel.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\model\duty\DutyManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -129,6 +141,18 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\plugin\IPlugin.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\model\duty\DutyModel.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\model\duty\TitleManager.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\model\duty\TitleModel.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\model\duty\DutyManager.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
